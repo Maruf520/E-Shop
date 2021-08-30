@@ -5,4 +5,15 @@
     <RootNamespace>E_Shop.Services</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\E-Shop.Dtos\E-Shop.Dtos.csproj" />
+    <ProjectReference Include="..\E-Shop.Models\E-Shop.Models.csproj" />
+    <ProjectReference Include="..\E-Shop.Repositories\E-Shop.Repositories.csproj" />
+  </ItemGroup>
+
 </Project>
