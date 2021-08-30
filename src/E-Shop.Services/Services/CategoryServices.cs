@@ -33,7 +33,7 @@ namespace E_Shop.Services.Services
                 return response;
             }
             var categoryToMap = mapper.Map<CategoryDto>(category);
-             categoryRepository.DeleteAsync(category);
+             categoryRepository.Delete(id);
             response.Data = categoryToMap;
             response.StatusCode = System.Net.HttpStatusCode.OK;
             return response;
@@ -44,7 +44,7 @@ namespace E_Shop.Services.Services
             ServiceResponse<List<CategoryDto>> response = new();
             List<CategoryDto> categoryDtos = new();
             
-            var allCategory = categoryRepository.GetAllAsync();
+            var allCategory = categoryRepository.GetAll();
             var categoryList = mapper.Map<List<CategoryDto>>(allCategory);
 
             if (allCategory == null)
@@ -61,7 +61,7 @@ namespace E_Shop.Services.Services
         public ServiceResponse<CategoryDto> GetCategoryById(long id)
         {
             ServiceResponse<CategoryDto> response = new();
-            var category = categoryRepository.FindCategoryById(id);
+            var category = categoryRepository.GetById(id);
             if(category == null)
             {
                 response.Messages.Add("Not Found");
@@ -82,9 +82,10 @@ namespace E_Shop.Services.Services
             try
             {
                 var category = mapper.Map<Category>(categoryDto);
-                categoryRepository.SaveAsync(category);
+                categoryRepository.Insert(category);
                 response.Messages.Add("Category Saved");
                 response.StatusCode = System.Net.HttpStatusCode.Created;
+                response.Data = categoryDto;
                 return response;
             }
             catch(Exception e)

@@ -43,5 +43,11 @@ namespace E_Shop.Api.Controllers
             var category = categoryService.DeleteCategory(id);
             return Ok(category);
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetbyId(long id)
+        {
+            var category = categoryService.GetCategoryById(id);
+            return Ok(category);
+        }
     }
 }
