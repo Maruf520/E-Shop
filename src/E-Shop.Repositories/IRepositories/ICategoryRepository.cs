@@ -9,10 +9,10 @@ namespace E_Shop.Repositories.IRepositories
 {
     public interface ICategoryRepository : IBaseRepository<Category>
     {
-        Category FindCategoryById(long id);
+  /*      Category FindCategoryById(long id);*/
        /* void SaveAsync(Category category);*/
-        void UpdateAsync(Category category);
+   /*     void UpdateAsync(Category category);*/
         /*void DeleteAsync(Category category);*/
-        List<Category> GetAllAsync();
+/*        List<Category> GetAllAsync();*/
     }
 }

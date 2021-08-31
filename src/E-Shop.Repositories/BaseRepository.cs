@@ -48,7 +48,8 @@ namespace E_Shop.Repositories
 
         public void Update(T entity)
         {
-            
+            entities.Update(entity);
+            context.SaveChanges();
         }
     }
 }

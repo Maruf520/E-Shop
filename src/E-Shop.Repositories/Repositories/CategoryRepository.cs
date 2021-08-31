@@ -23,18 +23,18 @@ namespace E_Shop.Repositories.Repositories
             context.SaveChanges();
         }*/
 
-        public Category FindCategoryById(long id)
+/*        public Category FindCategoryById(long id)
         {
             var category = context.Categories.Find(id);
             return category;
-        }
+        }*/
 
-        public List<Category> GetAllAsync()
+/*        public List<Category> GetAllAsync()
         {
             var allCategory = context.Categories;
             return allCategory.ToList();
 
-        }
+        }*/
 
 /*        public void SaveAsync(Category category)
         {
@@ -42,10 +42,10 @@ namespace E_Shop.Repositories.Repositories
             context.SaveChanges();
         }*/
 
-        public void UpdateAsync(Category category)
+/*        public void UpdateAsync(Category category)
         {
             context.Categories.Update(category);
             context.SaveChanges();
-        }
+        }*/
     }
 }
