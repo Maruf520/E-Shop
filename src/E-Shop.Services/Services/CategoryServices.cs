@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace E_Shop.Services.Services
 {
-   
+
     public class CategoryServices : ICategoryServices
     {
         private readonly ICategoryRepository categoryRepository;
@@ -25,15 +25,15 @@ namespace E_Shop.Services.Services
         public ServiceResponse<CategoryDto> DeleteCategory(long id)
         {
             ServiceResponse<CategoryDto> response = new ServiceResponse<CategoryDto>();
-            var category = categoryRepository.FindCategoryById(id);
-            if(category == null)
+            var category = categoryRepository.GetById(id);
+            if (category == null)
             {
                 response.Messages.Add("Not Found");
                 response.StatusCode = System.Net.HttpStatusCode.NotFound;
                 return response;
             }
             var categoryToMap = mapper.Map<CategoryDto>(category);
-             categoryRepository.DeleteAsync(category);
+            categoryRepository.Delete(id);
             response.Data = categoryToMap;
             response.StatusCode = System.Net.HttpStatusCode.OK;
             return response;
@@ -43,8 +43,8 @@ namespace E_Shop.Services.Services
         {
             ServiceResponse<List<CategoryDto>> response = new();
             List<CategoryDto> categoryDtos = new();
-            
-            var allCategory = categoryRepository.GetAllAsync();
+
+            var allCategory = categoryRepository.GetAll();
             var categoryList = mapper.Map<List<CategoryDto>>(allCategory);
 
             if (allCategory == null)
@@ -61,8 +61,8 @@ namespace E_Shop.Services.Services
         public ServiceResponse<CategoryDto> GetCategoryById(long id)
         {
             ServiceResponse<CategoryDto> response = new();
-            var category = categoryRepository.FindCategoryById(id);
-            if(category == null)
+            var category = categoryRepository.GetById(id);
+            if (category == null)
             {
                 response.Messages.Add("Not Found");
                 response.StatusCode = System.Net.HttpStatusCode.NotFound;
@@ -72,8 +72,8 @@ namespace E_Shop.Services.Services
             response.Data = getCategory;
             response.StatusCode = System.Net.HttpStatusCode.OK;
             return response;
-            
-           
+
+
         }
 
         public ServiceResponse<CategoryDto> SaveCategory(CategoryDto categoryDto)
@@ -82,12 +82,13 @@ namespace E_Shop.Services.Services
             try
             {
                 var category = mapper.Map<Category>(categoryDto);
-                categoryRepository.SaveAsync(category);
+                categoryRepository.Insert(category);
                 response.Messages.Add("Category Saved");
                 response.StatusCode = System.Net.HttpStatusCode.Created;
+                response.Data = categoryDto;
                 return response;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 var error = e.ToString();
                 response.Messages.Add(error);
@@ -101,15 +102,15 @@ namespace E_Shop.Services.Services
         public ServiceResponse<CategoryDto> UpdateCategory(CategoryDto categoryDto, long id)
         {
             ServiceResponse<CategoryDto> response = new();
-            var category = categoryRepository.FindCategoryById(id);
-            if(category == null)
+            var category = categoryRepository.GetById(id);
+            if (category == null)
             {
                 response.Messages.Add("category not found");
                 response.StatusCode = System.Net.HttpStatusCode.NotFound;
                 return response;
             }
             var categoryToMap = mapper.Map<Category>(categoryDto);
-            categoryRepository.UpdateAsync(categoryToMap);
+            categoryRepository.Update(categoryToMap);
             response.Messages.Add("Category Updated");
             response.Data = categoryDto;
             response.StatusCode = System.Net.HttpStatusCode.OK;

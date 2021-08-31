@@ -1,4 +1,5 @@
 using E_Shop.Models;
+using E_Shop.Repositories;
 using E_Shop.Repositories.IRepositories;
 using E_Shop.Repositories.Repositories;
 using E_Shop.Services.IServices;
@@ -43,6 +44,7 @@ namespace E_Shop.Api
                  optionsBuilder.MigrationsAssembly("E-Shop.Api")));
             services.AddScoped<ICategoryRepository,CategoryRepository>();
             services.AddScoped<ICategoryServices,CategoryServices>();
+            services.AddScoped(typeof(IBaseRepository<>),typeof(BaseRepository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
