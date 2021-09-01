@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using E_Shop.Dtos.BrandDtos;
 using E_Shop.Dtos.CategoryDtos;
 using E_Shop.Models.Products;
 using System;
@@ -14,6 +15,8 @@ namespace E_Shop.Api
         {
             CreateMap<CategoryDto, Category>();
             CreateMap<Category,CategoryDto>();
+            CreateMap<BrandDto, Brand>();
+            CreateMap<Brand, BrandDto>();
         }
     }
 }
