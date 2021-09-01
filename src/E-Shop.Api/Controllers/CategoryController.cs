@@ -25,7 +25,7 @@ namespace E_Shop.Api.Controllers
             var category = categoryService.SaveCategory(categoryDto);
             return Ok(category);
         }
-        [HttpPost("update")]
+        [HttpPut("update")]
         public async Task<IActionResult> UpdateCategory(CategoryDto categoryDto, long id)
         {
             var categoryToUpdate = categoryService.UpdateCategory(categoryDto, id);

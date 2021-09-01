@@ -9,11 +9,10 @@ using System.Threading.Tasks;
 
 namespace E_Shop.Repositories.Repositories
 {
-    public class CategoryRepository : BaseRepository<Category>,ICategoryRepository
+    public class BrandRepository : BaseRepository<Brand>, IBrandReoisitory
     {
         private readonly E_StoreDbContext context;
-
-        public CategoryRepository(E_StoreDbContext context): base(context)
+        public BrandRepository(E_StoreDbContext context) : base(context)
         {
             this.context = context;
         }

@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace E_Shop.Repositories.IRepositories
 {
-    public interface ICategoryRepository : IBaseRepository<Category>
+    public interface IBrandReoisitory : IBaseRepository<Brand>
     {
-
     }
 }
