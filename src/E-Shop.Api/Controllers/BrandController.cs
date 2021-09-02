@@ -44,5 +44,12 @@ namespace E_Shop.Api.Controllers
             var brand = brandService.DeleteBrand(id);
             return Ok(brand);
         }
+
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAllBrand()
+        {
+            var brand = brandService.GetAllBrand();
+            return Ok(brand);
+        }
     }
 }

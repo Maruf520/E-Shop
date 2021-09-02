@@ -47,6 +47,8 @@ namespace E_Shop.Api
             services.AddScoped(typeof(IBaseRepository<>),typeof(BaseRepository<>));
             services.AddScoped<IBrandReoisitory, BrandRepository>();
             services.AddScoped<IbrandService, BrandService>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductService, ProductService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
