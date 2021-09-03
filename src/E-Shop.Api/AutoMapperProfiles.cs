@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using E_Shop.Dtos.BrandDtos;
+using E_Shop.Dtos.CartDtos;
 using E_Shop.Dtos.CategoryDtos;
 using E_Shop.Dtos.ProductDtos;
+using E_Shop.Models.Carts;
 using E_Shop.Models.Products;
 using System;
 using System.Collections.Generic;
@@ -20,6 +22,8 @@ namespace E_Shop.Api
             CreateMap<Brand, BrandDto>();
             CreateMap<ProductDto, Product>();
             CreateMap<Product, ProductDto>();
+            CreateMap<CartItemDto, CartItem>();
+            CreateMap<CartItem, CartItemDto>();
         }
     }
 }
