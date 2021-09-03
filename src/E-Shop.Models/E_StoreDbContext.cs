@@ -1,4 +1,5 @@
-﻿using E_Shop.Models.Products;
+﻿using E_Shop.Models.Carts;
+using E_Shop.Models.Products;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -14,5 +15,7 @@ namespace E_Shop.Models
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Cart> Cart { get; set; }
+        public DbSet<CartItem> CartItem { get; set; }
     }
 }
